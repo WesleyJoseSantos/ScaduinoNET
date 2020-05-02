@@ -9,7 +9,7 @@ namespace ScaduinoNET.ScaduinoWindows
 {
     public class ScaduinoDialogs
     {
-        public void NewProject()
+        public DialogResult NewProject()
         {
             var result = MessageBox.Show(
                 "Do you want to close current project, and start a new project?",
@@ -21,13 +21,14 @@ namespace ScaduinoNET.ScaduinoWindows
             {
                 Application.Restart();
             }
+            return (result);
         }
 
-        public void OpenProject(bool startForm = false)
+        public DialogResult OpenProject()
         {
             var openFileDialog = new OpenFileDialog()
             {
-                //Filter = "Scaduino Project | .scproj",
+                Filter = "Scaduino Project|*.scproj",
                 InitialDirectory = Program.Scaduino.Settings.History.RecentProjectsDirectory,
                 CheckFileExists = true,
                 CheckPathExists = true
@@ -37,11 +38,8 @@ namespace ScaduinoNET.ScaduinoWindows
             {
                 Program.Scaduino.Project.Open(openFileDialog.FileName);
                 Program.Scaduino.Forms.MainMDI.InitializeProject();
-                if (startForm)
-                {
-                    Program.Scaduino.Forms.MainMDI.Show();
-                }
             }
+            return (result);
         }
     }
 }

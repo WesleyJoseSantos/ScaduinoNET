@@ -34,7 +34,12 @@ namespace ScaduinoNET.ScaduinoWindows.Startup
 
         private void TileOpen_Click(object sender, EventArgs e)
         {
-            Program.Scaduino.Dialogs.OpenProject(true);
+            DialogResult result = Program.Scaduino.Dialogs.OpenProject();
+            if(result == DialogResult.OK)
+            {
+                Program.Scaduino.Forms.MainMDI.Show();
+                Close();
+            }
         }
 
         private void TileExit_Click(object sender, EventArgs e)
