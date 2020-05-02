@@ -131,6 +131,7 @@
             // Explorer
             // 
             this.Explorer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Explorer.FileEditors = new CommonControls.FileEditor[0];
             this.Explorer.HideEmptyFolders = false;
             this.Explorer.ImageIndex = 0;
             this.Explorer.ImageList = this.Icons;
@@ -151,6 +152,14 @@
             this.Icons.Images.SetKeyName(1, "Screens");
             this.Icons.Images.SetKeyName(2, ".cfg");
             this.Icons.Images.SetKeyName(3, ".scr");
+            this.Icons.Images.SetKeyName(4, ".script");
+            this.Icons.Images.SetKeyName(5, ".xml");
+            this.Icons.Images.SetKeyName(6, ".cs");
+            this.Icons.Images.SetKeyName(7, ".js");
+            this.Icons.Images.SetKeyName(8, ".json");
+            this.Icons.Images.SetKeyName(9, ".sql");
+            this.Icons.Images.SetKeyName(10, ".html");
+            this.Icons.Images.SetKeyName(11, ".vb");
             // 
             // metroStyleManager1
             // 
