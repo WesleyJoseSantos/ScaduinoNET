@@ -238,7 +238,7 @@ namespace CommonControls
             var extension = e.Node.Text.Split('.').Last();
             foreach (var fileEditor in fileEditors)
             {
-                if(fileEditor.Extension == extension)
+                if (fileEditor.Extensions.Contains(extension))
                 {
                     fileEditor.FilePath = e.Node.Tag.ToString();
                     bool created = workspace.CreateTab(e.Node.Text, fileEditor, e.Node.Tag.ToString());
