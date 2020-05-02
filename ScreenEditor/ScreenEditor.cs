@@ -12,26 +12,34 @@ namespace ScreenEditor
 {
     public partial class ScreenEditor : Panel
     {
-        private readonly ControlManipulator controlManipulator = new ControlManipulator();
-        private ScreenData screenData = new ScreenData();
         internal readonly ScreenEditorDrawing drawing;
-        private ScreenEditorLayoutTool layoutTool;
-        private Control selectedControl;
-        private Control lastSelectedControl;
+        private readonly ControlManipulator controlManipulator = new ControlManipulator();
 
+        private ScreenEditorRealTimeParser parser;
+        private ScreenEditorLayoutTool layoutTool;
+        private ScreenData screenData = new ScreenData();
+
+        private Control lastPointedControl;
+        private Control pointedControl;
+
+        private bool moving = false;
         private bool offset = true;
         int xOffset = 0;
         int yOffset = 0;
 
-        public Control LastSelectedControl { get => lastSelectedControl ?? drawing.SelectedControls[0]; set => lastSelectedControl = value; }
-        public Control SelectedControl { get => selectedControl; set => selectedControl = value; }
+        public Control LastSelectedControl { get => lastPointedControl ?? drawing.SelectedControls[0]; set => lastPointedControl = value; }
+        public Control PointedControl { get => pointedControl; set => pointedControl = value; }
         public ScreenEditorLayoutTool LayoutTool { get => layoutTool; set => layoutTool = value; }
-        public ScreenData ScreenData { get => screenData; }
+        public ScreenData ScreenData { get => screenData; set => screenData = value; }
+        public ScreenEditorRealTimeParser Parser { get => parser; set => parser = value; }
+
+        public event EventHandler ControlHandled;
 
         public ScreenEditor()
         {
             InitializeComponent();
             LayoutTool = new ScreenEditorLayoutTool(this);
+            Parser = new ScreenEditorRealTimeParser(this);
             drawing = new ScreenEditorDrawing(this);
         }
 
@@ -51,6 +59,25 @@ namespace ScreenEditor
             string jsonStr = File.ReadAllText(path);
 
             screenData = JsonConvert.DeserializeObject<ScreenData>(jsonStr);
+
+            ReloadFromDataBase();
+
+            screenData.Properties.To(ref sreenEditor);
+        }
+
+        public void UpdateDataBase()
+        {
+            ScreenData.Controls.Clear();
+            foreach (Control control in Controls)
+            {
+                ScreenData.Controls.Add(new ControlData(control));
+            }
+
+            ScreenData.Properties.From(this);
+        }
+
+        public void ReloadFromDataBase()
+        {
             Controls.Clear();
             foreach (ControlData control in screenData.Controls)
             {
@@ -73,18 +100,6 @@ namespace ScreenEditor
                 Controls.Add(newControl);
             }
 
-            screenData.Properties.To(ref sreenEditor);
-        }
-
-        public void UpdateDataBase()
-        {
-            ScreenData.Controls.Clear();
-            foreach (Control control in Controls)
-            {
-                ScreenData.Controls.Add(new ControlData(control));
-            }
-
-            ScreenData.Properties.From(this);
         }
 
         public bool FileChanged()
@@ -103,7 +118,12 @@ namespace ScreenEditor
                 c.Dispose();
             }
             drawing.SelectedControls.Clear();
-            SelectedControl = null;
+            PointedControl = null;
+        }
+
+        public void CallControlHandled(Control control)
+        {
+            ControlHandled(this, new ControlEventArgs(control));
         }
 
         private void ScreenEditor_ControlAdded(object sender, ControlEventArgs e)
@@ -111,32 +131,42 @@ namespace ScreenEditor
             e.Control.MouseMove += new MouseEventHandler(Control_MouseMove);
             e.Control.MouseEnter += new EventHandler(Control_MouseEnter);
             e.Control.MouseLeave += new EventHandler(Control_MouseLeave);
+            ControlHandled(sender, e);
         }
 
         private void ScreenEditor_MouseUp(object sender, MouseEventArgs e)
         {
             offset = true;
-            selectedControl = null;
+            pointedControl = null;
             drawing.SelectedControls.Clear();
             drawing.UpdateSelectedControlsDwg();
+            if (moving)
+            {
+                ControlHandled(sender, e);
+            }
+            moving = false;
         }
 
         private void Control_MouseEnter(Object sender, EventArgs e)
         {
-            selectedControl = (Control)sender;
-            LastSelectedControl = selectedControl;
+            pointedControl = (Control)sender;
+            LastSelectedControl = pointedControl;
         }
 
         private void Control_MouseLeave(Object sender, EventArgs e)
         {
-            selectedControl = null;
+            pointedControl = null;
         }
 
         private void Control_MouseMove(object sender, MouseEventArgs e)
         {
             if (drawing.SelectedControls.Count == 0)
             {
-                controlManipulator.ManipulateControl(ref selectedControl, e, FindForm(), 10);
+                controlManipulator.ManipulateControl(ref pointedControl, e, FindForm(), 10);
+                if (e.Button == MouseButtons.Left)
+                {
+                    moving = true;
+                }
             }
             else
             {
@@ -154,138 +184,12 @@ namespace ScreenEditor
                         }
                         int x = control.Location.X + e.Location.X - xOffset;
                         int y = control.Location.Y + e.Location.Y - yOffset;
+                        moving = true;
                         control.Location = new Point(x, y);
                     }
                 }
             }
         }
 
-    }
-
-    public class ScreenEditorLayoutTool
-    {
-        ScreenEditor screen;
-
-        public ScreenEditorLayoutTool(ScreenEditor screen)
-        {
-            this.screen = screen;
-        }
-
-        public void AlignLeft()
-        {
-            var x = screen.LastSelectedControl.Location.X;
-            foreach (Control control in screen.drawing.SelectedControls)
-            {
-                control.Location = new Point(x, control.Location.Y);
-            }
-        }
-
-        public void AlignCenterY()
-        {
-            var x = screen.LastSelectedControl.Width/2;
-            x += screen.LastSelectedControl.Location.X;
-            foreach (Control control in screen.drawing.SelectedControls)
-            {
-                control.Location = new Point(control.Location.X + (x - control.Location.X - control.Width/2), control.Location.Y);
-            }
-        }
-
-        public void AlignRight()
-        {
-            var x = screen.LastSelectedControl.Width;
-            x += screen.LastSelectedControl.Location.X;
-            foreach (Control control in screen.drawing.SelectedControls)
-            {
-                control.Location = new Point(control.Location.X + (x - control.Location.X - control.Width), control.Location.Y);
-            }
-        }
-
-        public void AlignTop()
-        {
-            var y = screen.LastSelectedControl.Location.Y;
-            foreach (Control control in screen.drawing.SelectedControls)
-            {
-                control.Location = new Point(control.Location.X, y);
-            }
-        }
-
-        public void CenterX()
-        {
-            var y = screen.LastSelectedControl.Width / 2;
-            y += screen.LastSelectedControl.Location.Y;
-            foreach (Control control in screen.drawing.SelectedControls)
-            {
-                control.Location = new Point(control.Location.X, control.Location.Y + (y - control.Location.Y - control.Height / 2));
-            }
-        }
-
-        public void AlignBotton()
-        {
-            var y = screen.LastSelectedControl.Width / 2;
-            y += screen.LastSelectedControl.Location.Y;
-            foreach (Control control in screen.drawing.SelectedControls)
-            {
-                control.Location = new Point(control.Location.X, control.Location.Y + (y - control.Location.Y - control.Height));
-            }
-        }
-
-        public void AdjustWidth()
-        {
-            var width = screen.LastSelectedControl.Width;
-            foreach (Control control in screen.drawing.SelectedControls)
-            {
-                control.Width = width;
-            }
-        }
-
-        public void AdjustHeight()
-        {
-            var height = screen.LastSelectedControl.Height;
-            foreach (Control control in screen.drawing.SelectedControls)
-            {
-                control.Height = height;
-            }
-        }
-
-        public void AdjustSize()
-        {
-            var size = screen.LastSelectedControl.Size;
-            foreach (Control control in screen.drawing.SelectedControls)
-            {
-                control.Size = size;
-            }
-        }
-
-        public void AdjustDistanceX()
-        {
-            if (screen.drawing.SelectedControls.Count > 2)
-            {
-                var x1 = screen.drawing.SelectedControls[0].Location.X;
-                var x2 = screen.drawing.SelectedControls[1].Location.X;
-                var dist = x2 - x1;
-                var acc = 0;
-                foreach (Control control in screen.drawing.SelectedControls)
-                {
-                    control.Location = new Point(x1 + acc, control.Location.Y);
-                    acc += dist;
-                }
-            }
-        }
-
-        public void AdjustDistanceY()
-        {
-            if (screen.drawing.SelectedControls.Count > 2)
-            {
-                var y1 = screen.drawing.SelectedControls[0].Location.Y;
-                var y2 = screen.drawing.SelectedControls[1].Location.Y;
-                var dist = y2 - y1;
-                var acc = 0;
-                foreach (Control control in screen.drawing.SelectedControls)
-                {
-                    control.Location = new Point(control.Location.X, y1 + acc);
-                    acc += dist;
-                }
-            }
-        }
     }
 }

@@ -55,8 +55,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ScreenEditorLayoutTool.cs" />
     <Compile Include="Controllers\ControlManipulator.cs" />
     <Compile Include="Controllers\ScreenEditorDrawing.cs" />
+    <Compile Include="Controllers\ScreenEditorRealTimeParser.cs" />
     <Compile Include="DataBase\ControlData.cs" />
     <Compile Include="DataBase\PropertiesManager.cs" />
     <Compile Include="DataBase\ScreenData.cs" />
@@ -85,6 +87,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\FastColoredTextBox\FastColoredTextBox\FastColoredTextBox.csproj">
+      <Project>{6dd14a85-ccfc-4774-bd26-0f5772512319}</Project>
+      <Name>FastColoredTextBox</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

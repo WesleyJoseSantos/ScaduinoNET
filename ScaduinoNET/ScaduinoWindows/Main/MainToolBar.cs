@@ -86,12 +86,12 @@ namespace ScaduinoNET.ScaduinoWindows.Main
 
         private void TileToolsUndo_Click(object sender, EventArgs e)
         {
-
+            Program.Scaduino.Editor.CurrentScreenEditor.Parser.Undo();
         }
 
         private void TileToolsRedo_Click(object sender, EventArgs e)
         {
-
+            Program.Scaduino.Editor.CurrentScreenEditor.Parser.Redo();
         }
 
         private void TileToolsCut_Click(object sender, EventArgs e)
