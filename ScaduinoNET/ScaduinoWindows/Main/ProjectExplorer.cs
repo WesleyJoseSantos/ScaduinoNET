@@ -20,8 +20,7 @@ namespace ScaduinoNET.ScaduinoWindows.Main
 
             Explorer.FileEditors = new FileEditor[] {
                 new ProjectPropertiesEditor(),
-                new ProjectScreenEditor(),
-                new ProjectCodeEditor(),
+                new ProjectScreenEditor()
             };
         }
 

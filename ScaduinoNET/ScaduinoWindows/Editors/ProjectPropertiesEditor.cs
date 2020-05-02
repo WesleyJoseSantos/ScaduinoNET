@@ -15,12 +15,12 @@ namespace ScaduinoNET.ScaduinoWindows.Editors
 {
     public partial class ProjectPropertiesEditor : FileEditor
     {
-        readonly ScaduinoProjectProperties properties = new ScaduinoProjectProperties();
+        ScaduinoProjectProperties properties = new ScaduinoProjectProperties();
 
         public ProjectPropertiesEditor()
         {
             InitializeComponent();
-            Extensions = new string[] { "cfg"};
+            Extension = "cfg";
         }
 
         override public void LoadFile()
