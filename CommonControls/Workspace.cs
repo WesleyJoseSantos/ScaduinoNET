@@ -21,6 +21,25 @@ namespace ScaduinoNET.ScaduinoWindows.Main
             InitializeComponent();
         }
 
+        public void Save()
+        {
+            GetFileEditor(TabPage.SelectedTab).SaveFile();
+        }
+
+        public void SaveAll()
+        {
+            foreach (TabPage tab in TabPage.TabPages)
+            {
+                GetFileEditor(tab).SaveFile();
+            }
+        }
+
+        public void SaveClose()
+        {
+            GetFileEditor(TabPage.SelectedTab).SaveFile();
+            TabPage.TabPages.Remove(TabPage.SelectedTab);
+        }
+
         public bool CreateTab(string name, FileEditor content, string path)
         {
             bool ret = false;
@@ -60,12 +79,7 @@ namespace ScaduinoNET.ScaduinoWindows.Main
 
         private void TabPage_CloseButtonClicked(object sender, VisualStudioTabControl.CloseButtonClickedEventArgs e)
         {
-            FileEditor fileEditor = null;
-            foreach (var control in e.TabPage.Controls)
-            {
-                if (control.GetType().BaseType.FullName == typeof(FileEditor).FullName)
-                    fileEditor = (FileEditor)control;
-            }
+            FileEditor fileEditor = GetFileEditor(e.TabPage);
             if (fileEditor == null) return;
             if (fileEditor.FileChanged())
             {
@@ -81,6 +95,17 @@ namespace ScaduinoNET.ScaduinoWindows.Main
             }
             openedEditors.Remove(fileEditor);
             TabPage.TabPages.Remove(e.TabPage);
+        }
+
+        private FileEditor GetFileEditor(TabPage tabPage)
+        {
+            FileEditor fileEditor = null;
+            foreach (var control in tabPage.Controls)
+            {
+                if (control.GetType().BaseType.FullName == typeof(FileEditor).FullName)
+                    fileEditor = (FileEditor)control;
+            }
+            return fileEditor;
         }
     }
 }

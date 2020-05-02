@@ -165,9 +165,9 @@
         private System.Windows.Forms.TableLayoutPanel TableLayoutMain;
         private System.Windows.Forms.SplitContainer ContainerMain;
         private System.Windows.Forms.SplitContainer ContainerWorkspace;
-        private MainToolBar mainToolBar;
-        private ProjectExplorer projectExplorer;
         private Console console1;
-        private Workspace mainWorkspace;
+        internal MainToolBar mainToolBar;
+        internal ProjectExplorer projectExplorer;
+        internal Workspace mainWorkspace;
     }
 }

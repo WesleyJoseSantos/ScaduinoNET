@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MetroFramework.Controls;
+using ScaduinoNET.ScaduinoWindows.Startup;
+using ScaduinoNET.ScaduinoWindows.PoupUps;
 
 namespace ScaduinoNET.ScaduinoWindows.Main
 {
@@ -31,57 +33,57 @@ namespace ScaduinoNET.ScaduinoWindows.Main
 
         private void TileProjectSave_Click(object sender, EventArgs e)
         {
-            Program.Scaduino.Project.Save();
+            Program.Scaduino.Forms.MainMDI.mainWorkspace.Save();
         }
 
         private void TileProjectSaveAll_Click(object sender, EventArgs e)
         {
-
+            Program.Scaduino.Forms.MainMDI.mainWorkspace.SaveAll();
         }
 
         private void TileProjectSaveAs_Click(object sender, EventArgs e)
         {
-
+            new FeatureUnavailable().Show();    //TODO
         }
 
         private void TileProjectSaveClose_Click(object sender, EventArgs e)
         {
-
+            Program.Scaduino.Forms.MainMDI.mainWorkspace.SaveClose();
         }
 
         private void TileDisplayHome_Click(object sender, EventArgs e)
         {
-
+            new StartScreen().Show();    //TODO
         }
 
         private void TileDisplayExpand_Click(object sender, EventArgs e)
         {
-
+            new FeatureUnavailable().Show();    //TODO
         }
 
         private void TileDisplayExplorer_Click(object sender, EventArgs e)
         {
-
+            new FeatureUnavailable().Show();    //TODO
         }
 
         private void TileDisplayConsole_Click(object sender, EventArgs e)
         {
-
+            new FeatureUnavailable().Show();    //TODO
         }
 
         private void TileDisplayOutput_Click(object sender, EventArgs e)
         {
-
+            new FeatureUnavailable().Show();    //TODO
         }
 
         private void DisplayMonitor_Click(object sender, EventArgs e)
         {
-
+            new FeatureUnavailable().Show();    //TODO
         }
 
         private void TileDisplaySettings_Click(object sender, EventArgs e)
         {
-
+            new FeatureUnavailable().Show();    //TODO
         }
 
         private void TileToolsUndo_Click(object sender, EventArgs e)
