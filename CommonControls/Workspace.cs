@@ -61,6 +61,7 @@ namespace ScaduinoNET.ScaduinoWindows.Main
                 if (control.GetType().BaseType.FullName == typeof(FileEditor).FullName)
                     fileEditor = (FileEditor)control;
             }
+            if (fileEditor == null) return;
             if (fileEditor.FileChanged())
             {
                 var result = MessageBox.Show("Save Modifications?", "Save", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
