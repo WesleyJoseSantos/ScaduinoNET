@@ -17,7 +17,7 @@ namespace ScaduinoNET.ScaduinoWindows.Editors
         public ProjectScreenEditor()
         {
             InitializeComponent();
-            Extension = "scr";
+            Extensions = new string[] { "scr" };
         }
 
         override public void LoadFile()
