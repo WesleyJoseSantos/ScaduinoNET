@@ -21,17 +21,17 @@ namespace ScaduinoNET.ScaduinoWindows.Main
 
         private void TileProjectNew_Click(object sender, EventArgs e)
         {
-
+            Program.Scaduino.Dialogs.NewProject();
         }
 
         private void TileProjectOpen_Click(object sender, EventArgs e)
         {
-
+            Program.Scaduino.Dialogs.OpenProject();
         }
 
         private void TileProjectSave_Click(object sender, EventArgs e)
         {
-
+            Program.Scaduino.Project.Save();
         }
 
         private void TileProjectSaveAll_Click(object sender, EventArgs e)

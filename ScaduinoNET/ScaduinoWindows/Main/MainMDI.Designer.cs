@@ -32,7 +32,6 @@
             this.mainToolBar = new ScaduinoNET.ScaduinoWindows.Main.MainToolBar();
             this.ContainerMain = new System.Windows.Forms.SplitContainer();
             this.projectExplorer = new ScaduinoNET.ScaduinoWindows.Main.ProjectExplorer();
-            this.projectExplorer1 = new ScaduinoNET.ScaduinoWindows.Main.ProjectExplorer();
             this.ContainerWorkspace = new System.Windows.Forms.SplitContainer();
             this.mainWorkspace = new ScaduinoNET.ScaduinoWindows.Main.Workspace();
             this.console1 = new ScaduinoNET.ScaduinoWindows.Main.Console();
@@ -70,6 +69,7 @@
             this.mainToolBar.Name = "mainToolBar";
             this.mainToolBar.Size = new System.Drawing.Size(1320, 126);
             this.mainToolBar.TabIndex = 0;
+            this.mainToolBar.Load += new System.EventHandler(this.MainToolBar_Load);
             // 
             // ContainerMain
             // 
@@ -80,7 +80,6 @@
             // ContainerMain.Panel1
             // 
             this.ContainerMain.Panel1.Controls.Add(this.projectExplorer);
-            this.ContainerMain.Panel1.Controls.Add(this.projectExplorer1);
             // 
             // ContainerMain.Panel2
             // 
@@ -97,14 +96,6 @@
             this.projectExplorer.Name = "projectExplorer";
             this.projectExplorer.Size = new System.Drawing.Size(190, 530);
             this.projectExplorer.TabIndex = 1;
-            // 
-            // projectExplorer1
-            // 
-            this.projectExplorer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.projectExplorer1.Location = new System.Drawing.Point(0, 0);
-            this.projectExplorer1.Name = "projectExplorer1";
-            this.projectExplorer1.Size = new System.Drawing.Size(190, 530);
-            this.projectExplorer1.TabIndex = 0;
             // 
             // ContainerWorkspace
             // 
@@ -174,7 +165,6 @@
         private System.Windows.Forms.TableLayoutPanel TableLayoutMain;
         private System.Windows.Forms.SplitContainer ContainerMain;
         private System.Windows.Forms.SplitContainer ContainerWorkspace;
-        private ProjectExplorer projectExplorer1;
         private MainToolBar mainToolBar;
         private ProjectExplorer projectExplorer;
         private Console console1;

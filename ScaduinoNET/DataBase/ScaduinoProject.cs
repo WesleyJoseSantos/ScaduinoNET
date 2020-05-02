@@ -15,12 +15,30 @@ namespace ScaduinoNET.DataBase
         public ScaduinoProjectProperties Properties { get; set; }
         public ScaduinoProjectDirectories Directories { get; set; }
 
+        public ScaduinoProject() {
+            Properties = new ScaduinoProjectProperties();
+        }
+
         public ScaduinoProject(string name, string path, Size size)
         {
             Properties = new ScaduinoProjectProperties(name, path, size);
 
             string root = string.Format("{0}\\{1}", path, name);
             Directories = new ScaduinoProjectDirectories(root);
+        }
+
+        public void Open(string filePath)
+        {
+            FileInfo fileInfo = new FileInfo(filePath);
+            if(Directories == null)
+            {
+                Directories = new ScaduinoProjectDirectories(fileInfo.DirectoryName);
+            }
+            else
+            {
+                Directories.Root = fileInfo.DirectoryName;
+            }
+            Load();
         }
 
         public void Save()

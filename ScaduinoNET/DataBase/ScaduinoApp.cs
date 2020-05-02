@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 using Newtonsoft.Json;
 using ScaduinoNET.ScaduinoWindows.Main;
+using ScaduinoNET.ScaduinoWindows;
 
 namespace ScaduinoNET.DataBase
 {
@@ -15,8 +16,8 @@ namespace ScaduinoNET.DataBase
         public ScaduinoDirectories Directories { get; set; }
         public ScaduinoEditor Editor { get; set; }
         public ScaduinoProject Project { get; set; }
-
         public ScaduinoForms Forms { get; set; }
+        public ScaduinoDialogs Dialogs { get; set; }
 
         public ScaduinoApp()
         {
@@ -24,6 +25,8 @@ namespace ScaduinoNET.DataBase
             Directories = new ScaduinoDirectories();
             Editor = new ScaduinoEditor();
             Forms = new ScaduinoForms();
+            Dialogs = new ScaduinoDialogs();
+            Project = new ScaduinoProject();
         }
 
         public void LoadData()

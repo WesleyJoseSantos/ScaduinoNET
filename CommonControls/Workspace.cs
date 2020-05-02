@@ -41,6 +41,11 @@ namespace ScaduinoNET.ScaduinoWindows.Main
             return (ret);
         }
 
+        public void CloseAllTabs()
+        {
+            TabPage.TabPages.Clear();
+        }
+
         private TabPage GetTab(string name)
         {
             foreach (TabPage tabPage in TabPage.TabPages)

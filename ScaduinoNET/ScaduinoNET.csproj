@@ -76,6 +76,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ScaduinoWindows\ScaduinoDialogs.cs" />
     <Compile Include="ScaduinoWindows\Editors\ProjectCodeEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>

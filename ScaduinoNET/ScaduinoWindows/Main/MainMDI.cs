@@ -26,10 +26,7 @@ namespace ScaduinoNET.ScaduinoWindows.Main
             ContainerMain.SplitterDistance = Program.Scaduino.Settings.Interface.ContainerMainSplitterDistance;
             ContainerWorkspace.SplitterDistance = Program.Scaduino.Settings.Interface.ContainerWorkspaceSplitterDistance;
 
-            projectExplorer.Explorer.Paths = new string[]{ Program.Scaduino.Project.Properties.Path };
-            projectExplorer.Explorer.WatchedPath = Program.Scaduino.Project.Properties.Path;
-            projectExplorer.Explorer.SetWorkspace(ref mainWorkspace);
-            projectExplorer.Explorer.UpdateExplorer();
+            InitializeProject();
         }
 
         private void MainMDI_FormClosing(object sender, FormClosingEventArgs e)
@@ -38,6 +35,25 @@ namespace ScaduinoNET.ScaduinoWindows.Main
             Program.Scaduino.Settings.Interface.ContainerWorkspaceSplitterDistance = ContainerWorkspace.SplitterDistance;
             Program.Scaduino.SaveData();
             Application.Exit();
+        }
+
+        public void InitializeProject()
+        {
+            InitializePojectExplorer();
+            InitializeWorkspace();
+        }
+
+        private void InitializePojectExplorer()
+        {
+            projectExplorer.Explorer.Paths = new string[] { Program.Scaduino.Project.Properties.Path };
+            projectExplorer.Explorer.WatchedPath = Program.Scaduino.Project.Properties.Path;
+            projectExplorer.Explorer.SetWorkspace(ref mainWorkspace);
+            projectExplorer.Explorer.UpdateExplorer();
+        }
+
+        private void InitializeWorkspace()
+        {
+            mainWorkspace.CloseAllTabs();
         }
 
         public void ChangeSelectedMainTab(int tabIdx)
@@ -51,6 +67,11 @@ namespace ScaduinoNET.ScaduinoWindows.Main
             {
                 Program.Scaduino.Editor.CurrentScreenEditor.DeleteSelectedControls();
             }
+        }
+
+        private void MainToolBar_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }
