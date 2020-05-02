@@ -21,12 +21,12 @@ namespace ScaduinoNET.DataBase
 
         public ScaduinoApp()
         {
-            Settings = new ScaduinoSettings();
             Directories = new ScaduinoDirectories();
-            Editor = new ScaduinoEditor();
-            Forms = new ScaduinoForms();
+            Settings = new ScaduinoSettings();
             Dialogs = new ScaduinoDialogs();
             Project = new ScaduinoProject();
+            Editor = new ScaduinoEditor();
+            Forms = new ScaduinoForms();
         }
 
         public void LoadData()

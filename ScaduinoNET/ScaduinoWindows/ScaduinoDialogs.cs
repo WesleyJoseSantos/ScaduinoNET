@@ -23,7 +23,7 @@ namespace ScaduinoNET.ScaduinoWindows
             }
         }
 
-        public void OpenProject()
+        public void OpenProject(bool startForm = false)
         {
             var openFileDialog = new OpenFileDialog()
             {
@@ -37,6 +37,10 @@ namespace ScaduinoNET.ScaduinoWindows
             {
                 Program.Scaduino.Project.Open(openFileDialog.FileName);
                 Program.Scaduino.Forms.MainMDI.InitializeProject();
+                if (startForm)
+                {
+                    Program.Scaduino.Forms.MainMDI.Show();
+                }
             }
         }
     }
