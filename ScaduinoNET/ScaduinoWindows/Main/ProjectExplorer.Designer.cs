@@ -88,7 +88,7 @@
             // ToolSriptButtonNew
             // 
             this.ToolSriptButtonNew.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ToolSriptButtonNew.Image = global::ScaduinoNET.Properties.Resources.icons8_novo_arquivo_50;
+            this.ToolSriptButtonNew.Image = ((System.Drawing.Image)(resources.GetObject("ToolSriptButtonNew.Image")));
             this.ToolSriptButtonNew.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ToolSriptButtonNew.Name = "ToolSriptButtonNew";
             this.ToolSriptButtonNew.Size = new System.Drawing.Size(23, 22);
@@ -106,7 +106,7 @@
             // ToolStripButtonOpen
             // 
             this.ToolStripButtonOpen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ToolStripButtonOpen.Image = global::ScaduinoNET.Properties.Resources.icons8_abrir_pasta_50;
+            this.ToolStripButtonOpen.Image = ((System.Drawing.Image)(resources.GetObject("ToolStripButtonOpen.Image")));
             this.ToolStripButtonOpen.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ToolStripButtonOpen.Name = "ToolStripButtonOpen";
             this.ToolStripButtonOpen.Size = new System.Drawing.Size(23, 22);
@@ -150,7 +150,7 @@
             this.Icons.TransparentColor = System.Drawing.Color.Transparent;
             this.Icons.Images.SetKeyName(0, "");
             this.Icons.Images.SetKeyName(1, "Screens");
-            this.Icons.Images.SetKeyName(2, ".cfg");
+            this.Icons.Images.SetKeyName(2, ".scproj");
             this.Icons.Images.SetKeyName(3, ".scr");
             this.Icons.Images.SetKeyName(4, ".script");
             this.Icons.Images.SetKeyName(5, ".xml");

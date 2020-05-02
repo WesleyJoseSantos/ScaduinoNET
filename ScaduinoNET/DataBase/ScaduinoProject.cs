@@ -30,7 +30,7 @@ namespace ScaduinoNET.DataBase
 
         public void Load()
         {
-            Properties.LoadProperties(string.Format("{0}\\Properties.cfg", Directories.Root));
+            Properties.LoadProperties(string.Format("{0}\\Properties.scproj", Directories.Root));
         }
 
     }
@@ -68,7 +68,7 @@ namespace ScaduinoNET.DataBase
             Path = string.Format("{0}\\{1}", path, name);
             ScreenSize = size;
 
-            FilePath = string.Format("{0}\\Properties.cfg", Path);
+            FilePath = string.Format("{0}\\Properties.scproj", Path);
             
             SaveProperties();
         }

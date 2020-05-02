@@ -20,7 +20,7 @@ namespace ScaduinoNET.ScaduinoWindows.Editors
         public ProjectPropertiesEditor()
         {
             InitializeComponent();
-            Extensions = new string[] { "cfg"};
+            Extensions = new string[] { "scproj"};
         }
 
         override public void LoadFile()
