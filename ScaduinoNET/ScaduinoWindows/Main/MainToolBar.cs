@@ -43,7 +43,8 @@ namespace ScaduinoNET.ScaduinoWindows.Main
 
         private void TileProjectSaveAs_Click(object sender, EventArgs e)
         {
-            new FeatureUnavailable().Show();    //TODO
+            new FeatureUnavailable().ShowDialog();    //TODO
+            this.Focus();
         }
 
         private void TileProjectSaveClose_Click(object sender, EventArgs e)
@@ -58,42 +59,50 @@ namespace ScaduinoNET.ScaduinoWindows.Main
 
         private void TileDisplayExpand_Click(object sender, EventArgs e)
         {
-            new FeatureUnavailable().Show();    //TODO
+            new FeatureUnavailable().ShowDialog();    //TODO
+            this.Focus();
         }
 
         private void TileDisplayExplorer_Click(object sender, EventArgs e)
         {
-            new FeatureUnavailable().Show();    //TODO
+            new FeatureUnavailable().ShowDialog();    //TODO
+            this.Focus();
         }
 
         private void TileDisplayConsole_Click(object sender, EventArgs e)
         {
-            new FeatureUnavailable().Show();    //TODO
+            new FeatureUnavailable().ShowDialog();    //TODO
+            this.Focus();
         }
 
         private void TileDisplayOutput_Click(object sender, EventArgs e)
         {
-            new FeatureUnavailable().Show();    //TODO
+            new FeatureUnavailable().ShowDialog();    //TODO
+            this.Focus();
         }
 
         private void DisplayMonitor_Click(object sender, EventArgs e)
         {
-            new FeatureUnavailable().Show();    //TODO
+            new FeatureUnavailable().ShowDialog();    //TODO
+            this.Focus();
         }
 
         private void TileDisplaySettings_Click(object sender, EventArgs e)
         {
-            new FeatureUnavailable().Show();    //TODO
+            new FeatureUnavailable().ShowDialog();    //TODO
+            this.Focus();
         }
 
         private void TileToolsUndo_Click(object sender, EventArgs e)
         {
-            Program.Scaduino.Editor.CurrentScreenEditor.Parser.Undo();
+            if(Program.Scaduino.Editor.CurrentScreenEditor != null)
+                Program.Scaduino.Editor.CurrentScreenEditor.Parser.Undo();
         }
 
         private void TileToolsRedo_Click(object sender, EventArgs e)
         {
-            Program.Scaduino.Editor.CurrentScreenEditor.Parser.Redo();
+            if(Program.Scaduino.Editor.CurrentScreenEditor != null)
+                Program.Scaduino.Editor.CurrentScreenEditor.Parser.Redo();
         }
 
         private void TileToolsCut_Click(object sender, EventArgs e)
@@ -177,57 +186,68 @@ namespace ScaduinoNET.ScaduinoWindows.Main
 
         private void TileLayoutLeft_Click(object sender, EventArgs e)
         {
-            Program.Scaduino.Editor.CurrentScreenEditor.LayoutTool.AlignLeft();
+            if(Program.Scaduino.Editor.CurrentScreenEditor != null)
+                Program.Scaduino.Editor.CurrentScreenEditor.LayoutTool.AlignLeft();
         }
 
         private void TileLayoutCenterY_Click(object sender, EventArgs e)
         {
-            Program.Scaduino.Editor.CurrentScreenEditor.LayoutTool.AlignCenterY();
+            if(Program.Scaduino.Editor.CurrentScreenEditor != null)
+                Program.Scaduino.Editor.CurrentScreenEditor.LayoutTool.AlignCenterY();
         }
 
         private void TileLayoutCenterRight_Click(object sender, EventArgs e)
         {
-            Program.Scaduino.Editor.CurrentScreenEditor.LayoutTool.AlignRight();
+            if(Program.Scaduino.Editor.CurrentScreenEditor != null)
+                Program.Scaduino.Editor.CurrentScreenEditor.LayoutTool.AlignRight();
         }
 
         private void TileLayoutCenterTop_Click(object sender, EventArgs e)
         {
-            Program.Scaduino.Editor.CurrentScreenEditor.LayoutTool.AlignTop();
+            if(Program.Scaduino.Editor.CurrentScreenEditor != null)
+                Program.Scaduino.Editor.CurrentScreenEditor.LayoutTool.AlignTop();
         }
 
         private void TileLayoutCenterX_Click(object sender, EventArgs e)
         {
-            Program.Scaduino.Editor.CurrentScreenEditor.LayoutTool.CenterX();
+            if(Program.Scaduino.Editor.CurrentScreenEditor != null)
+                Program.Scaduino.Editor.CurrentScreenEditor.LayoutTool.CenterX();
         }
 
         private void TileLayoutCenterBotton_Click(object sender, EventArgs e)
         {
-            Program.Scaduino.Editor.CurrentScreenEditor.LayoutTool.AlignBotton();
+            if(Program.Scaduino.Editor.CurrentScreenEditor != null)
+                Program.Scaduino.Editor.CurrentScreenEditor.LayoutTool.AlignBotton();
         }
 
         private void TileLayoutAdjustWidth_Click(object sender, EventArgs e)
         {
-            Program.Scaduino.Editor.CurrentScreenEditor.LayoutTool.AdjustWidth();
+            if(Program.Scaduino.Editor.CurrentScreenEditor != null)
+                Program.Scaduino.Editor.CurrentScreenEditor.LayoutTool.AdjustWidth();
         }
 
         private void TileLayoutAdjustHeight_Click(object sender, EventArgs e)
         {
-            Program.Scaduino.Editor.CurrentScreenEditor.LayoutTool.AdjustHeight();
+            if(Program.Scaduino.Editor.CurrentScreenEditor != null)
+                Program.Scaduino.Editor.CurrentScreenEditor.LayoutTool.AdjustHeight();
         }
 
         private void TileLayoutAdjustSize_Click(object sender, EventArgs e)
         {
-            Program.Scaduino.Editor.CurrentScreenEditor.LayoutTool.AdjustSize();
+            if(Program.Scaduino.Editor.CurrentScreenEditor != null)
+                Program.Scaduino.Editor.CurrentScreenEditor.LayoutTool.AdjustSize();
         }
 
         private void MetroLayoutDistanceX_Click(object sender, EventArgs e)
         {
-            Program.Scaduino.Editor.CurrentScreenEditor.LayoutTool.AdjustDistanceX();
+            if(Program.Scaduino.Editor.CurrentScreenEditor != null)
+                Program.Scaduino.Editor.CurrentScreenEditor.LayoutTool.AdjustDistanceX();
         }
 
         private void MetroLayoutDistanceY_Click(object sender, EventArgs e)
         {
-            Program.Scaduino.Editor.CurrentScreenEditor.LayoutTool.AdjustDistanceY();
+            if(Program.Scaduino.Editor.CurrentScreenEditor != null)
+                Program.Scaduino.Editor.CurrentScreenEditor.LayoutTool.AdjustDistanceY();
         }
     }
 }
