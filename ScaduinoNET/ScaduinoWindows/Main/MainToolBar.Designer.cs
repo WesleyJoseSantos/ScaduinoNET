@@ -102,7 +102,7 @@
             this.TabControl.HotTrack = true;
             this.TabControl.Location = new System.Drawing.Point(0, 0);
             this.TabControl.Name = "TabControl";
-            this.TabControl.SelectedIndex = 4;
+            this.TabControl.SelectedIndex = 2;
             this.TabControl.Size = new System.Drawing.Size(1117, 126);
             this.TabControl.TabIndex = 0;
             this.TabControl.UseSelectable = true;

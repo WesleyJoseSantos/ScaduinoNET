@@ -69,7 +69,6 @@
             this.mainToolBar.Name = "mainToolBar";
             this.mainToolBar.Size = new System.Drawing.Size(1320, 126);
             this.mainToolBar.TabIndex = 0;
-            this.mainToolBar.Load += new System.EventHandler(this.MainToolBar_Load);
             // 
             // ContainerMain
             // 

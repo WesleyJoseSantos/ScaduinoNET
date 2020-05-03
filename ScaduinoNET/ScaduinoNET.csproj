@@ -76,6 +76,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ScaduinoWindows\PoupUps\PropertiesEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScaduinoWindows\PoupUps\PropertiesEditor.Designer.cs">
+      <DependentUpon>PropertiesEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="ScaduinoWindows\ScaduinoDialogs.cs" />
     <Compile Include="ScaduinoWindows\Editors\ProjectCodeEditor.cs">
       <SubType>UserControl</SubType>
@@ -183,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ScaduinoWindows\Main\ProjectExplorer.resx">
       <DependentUpon>ProjectExplorer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScaduinoWindows\PoupUps\PropertiesEditor.resx">
+      <DependentUpon>PropertiesEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ScaduinoWindows\Startup\NewProject.resx">
       <DependentUpon>NewProject.cs</DependentUpon>
