@@ -7,6 +7,7 @@ using System.Reflection;
 using System.IO;
 using ScreenEditor.DataBase;
 using ScreenEditor.Controllers;
+using System.ComponentModel;    
 
 namespace ScreenEditor
 {
@@ -27,10 +28,15 @@ namespace ScreenEditor
         int xOffset = 0;
         int yOffset = 0;
 
-        public Control LastSelectedControl { get => lastPointedControl ?? drawing.SelectedControls[0]; set => lastPointedControl = value; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public Control LastSelectedControl { get => lastPointedControl /*?? drawing.SelectedControls[0]*/; set => lastPointedControl = value; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public Control PointedControl { get => pointedControl; set => pointedControl = value; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public ScreenEditorLayoutTool LayoutTool { get => layoutTool; set => layoutTool = value; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public ScreenData ScreenData { get => screenData; set => screenData = value; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public ScreenEditorRealTimeParser Parser { get => parser; set => parser = value; }
 
         public event EventHandler ControlHandled;
@@ -82,7 +88,7 @@ namespace ScreenEditor
             foreach (ControlData control in screenData.Controls)
             {
                 string assembly = control.Properties.Type.Split('.')[0];
-                _ = typeof(Control);
+                //_ = typeof(Control);
                 Type type;
                 switch (assembly)
                 {
