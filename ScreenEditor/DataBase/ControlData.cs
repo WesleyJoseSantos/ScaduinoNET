@@ -54,6 +54,7 @@ namespace ScreenEditor.DataBase
     public class ControlProperties : PropertiesManager
     {
         public Size Size { get; set; }
+        public string AccessibleDescription { get; set; }
         public Point Location { get; set; }
         public string Text { get; set; }
         public Color BackColor { get; set; }
