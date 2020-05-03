@@ -121,6 +121,9 @@
   <data name="icons8_abrir_pasta_50" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\project\icons8-abrir-pasta-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icons8_adicionar_propriedade_50" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\miscellaneous\icons8-adicionar-propriedade-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icons8_alinhar_centro_horizontal_50" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\layout\icons8-alinhar-centro-horizontal-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

@@ -73,6 +73,16 @@ namespace ScaduinoNET.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap icons8_adicionar_propriedade_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_adicionar_propriedade_50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap icons8_alinhar_centro_horizontal_50 {
             get {
                 object obj = ResourceManager.GetObject("icons8_alinhar_centro_horizontal_50", resourceCulture);
