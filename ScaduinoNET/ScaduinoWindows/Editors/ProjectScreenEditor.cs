@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CommonControls;
 using MetroFramework.Controls;
+using ScaduinoNET.ScaduinoWindows.PoupUps;
 
 namespace ScaduinoNET.ScaduinoWindows.Editors
 {
@@ -57,6 +58,15 @@ namespace ScaduinoNET.ScaduinoWindows.Editors
                 Program.Scaduino.Editor.SelectedNewComponent = null;
                 Program.Scaduino.Editor.Cursor = Cursors.Default;
             }
+        }
+
+        private void PropertiesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var editor = new PropertiesEditor()
+            {
+                ControlToEdit = screenEditor.LastSelectedControl ?? screenEditor
+            };
+            editor.ShowDialog();
         }
     }
 
