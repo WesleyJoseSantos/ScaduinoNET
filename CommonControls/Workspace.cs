@@ -23,7 +23,9 @@ namespace ScaduinoNET.ScaduinoWindows.Main
 
         public void Save()
         {
-            GetFileEditor(TabPage.SelectedTab).SaveFile();
+            var file = GetFileEditor(TabPage.SelectedTab);
+            if (file != null)
+                file.SaveFile();
         }
 
         public void SaveAll()
@@ -36,8 +38,11 @@ namespace ScaduinoNET.ScaduinoWindows.Main
 
         public void SaveClose()
         {
-            GetFileEditor(TabPage.SelectedTab).SaveFile();
-            TabPage.TabPages.Remove(TabPage.SelectedTab);
+            var file = GetFileEditor(TabPage.SelectedTab);
+            if (file != null)
+                file.SaveFile();
+            if(TabPage.TabPages.Count > 0)
+                TabPage.TabPages.Remove(TabPage.SelectedTab);
         }
 
         public bool CreateTab(string name, FileEditor content, string path)
@@ -100,6 +105,7 @@ namespace ScaduinoNET.ScaduinoWindows.Main
         private FileEditor GetFileEditor(TabPage tabPage)
         {
             FileEditor fileEditor = null;
+            if (TabPage.TabPages.Count == 0) return null;
             foreach (var control in tabPage.Controls)
             {
                 if (control.GetType().BaseType.FullName == typeof(FileEditor).FullName)
