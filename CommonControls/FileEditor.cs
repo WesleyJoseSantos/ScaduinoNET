@@ -12,7 +12,7 @@ namespace CommonControls
 {
     public partial class FileEditor : UserControl
     {
-        private List<string> extensions;
+        private List<string> extensions = new List<string>();
         private string filePath;
 
         public string[] Extensions { get => extensions.ToArray(); set => extensions = value.ToList(); }
