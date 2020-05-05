@@ -138,42 +138,54 @@ namespace ScaduinoNET.ScaduinoWindows.Main
 
         private void TileDesignButton_Click(object sender, EventArgs e)
         {
-            Program.Scaduino.Editor.SelectedNewComponent = new MetroButton();
-            Program.Scaduino.Editor.SelectedNewComponent.Text = "New Button";
+            Program.Scaduino.Editor.SelectedNewComponent = new MetroButton
+            {
+                Text = "New Button"
+            };
             Program.Scaduino.Editor.Cursor = Cursors.UpArrow ;
         }
 
         private void TileDesignCheckBox_Click(object sender, EventArgs e)
         {
-            Program.Scaduino.Editor.SelectedNewComponent = new MetroCheckBox();
-            Program.Scaduino.Editor.SelectedNewComponent.Text = "New CheckBox";
+            Program.Scaduino.Editor.SelectedNewComponent = new MetroCheckBox
+            {
+                Text = "New CheckBox"
+            };
             Program.Scaduino.Editor.Cursor = Cursors.UpArrow;
         }
 
         private void TileDesignToogle_Click(object sender, EventArgs e)
         {
-            Program.Scaduino.Editor.SelectedNewComponent = new MetroToggle();
-            Program.Scaduino.Editor.SelectedNewComponent.Text = "New Toogle";
+            Program.Scaduino.Editor.SelectedNewComponent = new MetroToggle
+            {
+                Text = "New Toogle"
+            };
             Program.Scaduino.Editor.Cursor = Cursors.UpArrow;
         }
 
         private void TileDesignTrackBar_Click(object sender, EventArgs e)
         {
-            Program.Scaduino.Editor.SelectedNewComponent = new MetroTrackBar();
-            Program.Scaduino.Editor.SelectedNewComponent.Text = "New TrackBar";
+            Program.Scaduino.Editor.SelectedNewComponent = new MetroTrackBar
+            {
+                Text = "New TrackBar"
+            };
             Program.Scaduino.Editor.Cursor = Cursors.UpArrow;
         }
 
         private void TileDesignBarGraph_Click(object sender, EventArgs e)
         {
-            Program.Scaduino.Editor.SelectedNewComponent = new MetroProgressBar();
-            Program.Scaduino.Editor.SelectedNewComponent.Text = "New BarGraph";
+            Program.Scaduino.Editor.SelectedNewComponent = new MetroProgressBar
+            {
+                Text = "New BarGraph"
+            };
             Program.Scaduino.Editor.Cursor = Cursors.UpArrow;
         }
         private void TileDesignTextBox_Click(object sender, EventArgs e)
         {
-            Program.Scaduino.Editor.SelectedNewComponent = new TextBox();
-            Program.Scaduino.Editor.SelectedNewComponent.Text = "New TextBox";
+            Program.Scaduino.Editor.SelectedNewComponent = new TextBox
+            {
+                Text = "New TextBox"
+            };
             Program.Scaduino.Editor.Cursor = Cursors.UpArrow;
         }
 

@@ -64,7 +64,7 @@ namespace ScreenEditor
         {
             string jsonStr = File.ReadAllText(path);
 
-            screenData = JsonConvert.DeserializeObject<ScreenData>(jsonStr);
+            screenData = JsonConvert.DeserializeObject<ScreenData>(jsonStr) ?? new ScreenData();
 
             ReloadFromDataBase();
 
@@ -85,8 +85,9 @@ namespace ScreenEditor
         public void ReloadFromDataBase()
         {
             Controls.Clear();
-            foreach (ControlData control in screenData.Controls)
+            for (int i = 0; i < screenData.Controls.Count; i++)
             {
+                ControlData control = screenData.Controls[i];
                 string assembly = control.Properties.Type.Split('.')[0];
                 //_ = typeof(Control);
                 Type type;

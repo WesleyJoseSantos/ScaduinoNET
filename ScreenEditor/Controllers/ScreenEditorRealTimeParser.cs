@@ -54,9 +54,10 @@ namespace ScreenEditor.Controllers
         private void Screen_ControlHandled(object sender, EventArgs e)
         {
             if (undoOrRedo) return;
-            ThreadPool.QueueUserWorkItem(
-                (o) => ParseScreen()
-            );
+            ParseScreen();
+            //ThreadPool.QueueUserWorkItem(
+            //    (o) => ParseScreen()
+            //);
         }
 
         private void ParseScreen()

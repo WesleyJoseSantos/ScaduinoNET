@@ -76,6 +76,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ScaduinoWindows\Editors\ProjectTagsEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ScaduinoWindows\Editors\ProjectTagsEditor.Designer.cs">
+      <DependentUpon>ProjectTagsEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="ScaduinoWindows\PoupUps\PropertiesEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +178,9 @@
     <EmbeddedResource Include="ScaduinoWindows\Editors\ProjectScreenEditor.resx">
       <DependentUpon>ProjectScreenEditor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ScaduinoWindows\Editors\ProjectTagsEditor.resx">
+      <DependentUpon>ProjectTagsEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ScaduinoWindows\PoupUps\NewScreen.resx">
       <DependentUpon>NewScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -243,6 +252,7 @@
     <Content Include="Resources\Controls\icons8-mixer-de-configurações-horizontal-50.png" />
     <Content Include="Resources\FileTypes\icons8-arquivo-de-código-50.png" />
     <Content Include="Resources\FileTypes\icons8-arquivo-xml-50.png" />
+    <Content Include="Resources\FileTypes\icons8-banco-de-dados-50.png" />
     <Content Include="Resources\FileTypes\icons8-chave-inglesa-50.png" />
     <Content Include="Resources\FileTypes\icons8-cs-50.png" />
     <Content Include="Resources\FileTypes\icons8-código-do-google-100.png" />
@@ -252,6 +262,7 @@
     <Content Include="Resources\FileTypes\icons8-pasta-de-documentos-50.png" />
     <Content Include="Resources\FileTypes\icons8-pasta-de-extensões-50.png" />
     <Content Include="Resources\FileTypes\icons8-pasta-do-usuário-50.png" />
+    <Content Include="Resources\FileTypes\icons8-pasta-tags-50.png" />
     <Content Include="Resources\FileTypes\icons8-propriedades-da-tabela-50.png" />
     <Content Include="Resources\FileTypes\icons8-sql-50.png" />
     <Content Include="Resources\FileTypes\icons8-tipo-de-ficheiro-html-50.png" />

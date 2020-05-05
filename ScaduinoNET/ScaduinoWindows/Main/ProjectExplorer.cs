@@ -22,6 +22,7 @@ namespace ScaduinoNET.ScaduinoWindows.Main
                 new ProjectPropertiesEditor(),
                 new ProjectScreenEditor(),
                 new ProjectCodeEditor(),
+                new ProjectTagsEditor()
             };
         }
 

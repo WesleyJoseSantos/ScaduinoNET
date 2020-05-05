@@ -34,10 +34,10 @@ namespace ScreenEditor.Controllers
         public void UpdateSelectedControlsDwg()
         {
             var dwg = screen.CreateGraphics();
-            dwg.Clear(Color.White);
+            dwg.Clear(screen.BackColor);
             foreach (Control control in selectedControls)
             { 
-                var pen = new Pen(Brushes.Black);
+                var pen = new Pen(screen.ForeColor);
                 var rect = new Rectangle(new Point(control.Location.X - 3, control.Location.Y - 3), control.Size + new Size(3, 3));
                 pen.DashStyle = DashStyle.Dot;
                 dwg.DrawRectangle(pen, rect);
@@ -57,7 +57,7 @@ namespace ScreenEditor.Controllers
             {
                 if (startDrawing)
                 {
-                    dwg.Clear(Color.White);
+                    dwg.Clear(screen.BackColor);
                     UpdateSelectedControls();
                 }
                 startDrawing = false;
@@ -66,8 +66,8 @@ namespace ScreenEditor.Controllers
             {
                 mousePosB = e.Location;
                 recPoints = RectangleFromPoints(mousePosA, mousePosB);
-                dwg.Clear(Color.White);
-                var blackPen = new Pen(Color.Black, 1)
+                dwg.Clear(screen.BackColor);
+                var blackPen = new Pen(screen.ForeColor, 1)
                 {
                     DashStyle = DashStyle.Dash
                 };

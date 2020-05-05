@@ -60,6 +60,31 @@ namespace ScaduinoNET.ScaduinoWindows.Editors
             }
         }
 
+        private void UndoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            screenEditor.Parser.Undo();
+        }
+
+        private void RedoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            screenEditor.Parser.Redo();
+        }
+
+        private void CutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CopyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PastToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void PropertiesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var editor = new PropertiesEditor()
@@ -67,6 +92,11 @@ namespace ScaduinoNET.ScaduinoWindows.Editors
                 ControlToEdit = screenEditor.LastSelectedControl ?? screenEditor
             };
             editor.ShowDialog();
+        }
+
+        private void DeleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            screenEditor.DeleteSelectedControls();
         }
     }
 

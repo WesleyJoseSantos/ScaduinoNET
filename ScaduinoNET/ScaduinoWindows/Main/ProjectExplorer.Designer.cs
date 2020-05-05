@@ -150,16 +150,18 @@
             this.Icons.TransparentColor = System.Drawing.Color.Transparent;
             this.Icons.Images.SetKeyName(0, "");
             this.Icons.Images.SetKeyName(1, "Screens");
-            this.Icons.Images.SetKeyName(2, ".scproj");
-            this.Icons.Images.SetKeyName(3, ".scr");
-            this.Icons.Images.SetKeyName(4, ".script");
-            this.Icons.Images.SetKeyName(5, ".xml");
-            this.Icons.Images.SetKeyName(6, ".cs");
-            this.Icons.Images.SetKeyName(7, ".js");
-            this.Icons.Images.SetKeyName(8, ".json");
-            this.Icons.Images.SetKeyName(9, ".sql");
-            this.Icons.Images.SetKeyName(10, ".html");
-            this.Icons.Images.SetKeyName(11, ".vb");
+            this.Icons.Images.SetKeyName(2, "Tags");
+            this.Icons.Images.SetKeyName(3, ".scproj");
+            this.Icons.Images.SetKeyName(4, ".scr");
+            this.Icons.Images.SetKeyName(5, ".script");
+            this.Icons.Images.SetKeyName(6, ".xml");
+            this.Icons.Images.SetKeyName(7, ".cs");
+            this.Icons.Images.SetKeyName(8, ".js");
+            this.Icons.Images.SetKeyName(9, ".json");
+            this.Icons.Images.SetKeyName(10, ".sql");
+            this.Icons.Images.SetKeyName(11, ".html");
+            this.Icons.Images.SetKeyName(12, ".vb");
+            this.Icons.Images.SetKeyName(13, ".tgs");
             // 
             // metroStyleManager1
             // 

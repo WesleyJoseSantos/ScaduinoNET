@@ -22,9 +22,7 @@ namespace ScaduinoNET.DataBase
         public ScaduinoProject(string name, string path, Size size)
         {
             Properties = new ScaduinoProjectProperties(name, path, size);
-
-            string root = string.Format("{0}\\{1}", path, name);
-            Directories = new ScaduinoProjectDirectories(root);
+            Directories = new ScaduinoProjectDirectories(Properties);
         }
 
         public void Open(string filePath)
@@ -57,13 +55,45 @@ namespace ScaduinoNET.DataBase
     {
         public string Root { get; set; }
         public string Screens { get; set; }
+        public string Tags { get; set; }
 
         public ScaduinoProjectDirectories(string root)
         {
             Root = root;
-            Screens = string.Format("{0}\\Screens", root);
+            Screens = string.Format("{0}\\Screens", Root);
+            Tags = string.Format("{0}\\Tags", Root);
 
             Directory.CreateDirectory(Screens);
+            Directory.CreateDirectory(Tags);
+
+            File.WriteAllText(string.Format("{0}\\CommonTags.tgs", Tags), "");
+        }
+
+        public ScaduinoProjectDirectories(ScaduinoProjectProperties properties)
+        {
+            Root = properties.Path;
+            Screens = string.Format("{0}\\Screens", Root);
+            Tags = string.Format("{0}\\Tags", Root);
+
+            Directory.CreateDirectory(Screens);
+            Directory.CreateDirectory(Tags);
+
+            File.WriteAllText(string.Format("{0}\\CommonTags.tgs", Tags), "");
+
+            var screenProperties = new ScreenPropreties()
+            {
+                Name = "NewScreen",
+                AccessibleDescription = "Default screen created on new project",
+                Size = properties.ScreenSize
+            };
+
+            var newScreen = new ScreenData()
+            {
+                Path = string.Format("{0}\\{1}.scr", Screens, "NewScreen"),
+                Properties = screenProperties
+            };
+
+            newScreen.Save();
         }
     }
 

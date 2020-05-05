@@ -154,7 +154,6 @@ namespace ScaduinoNET.ScaduinoWindows.Main
                 case Keys.Insert:
                     break;
                 case Keys.Delete:
-                    Program.Scaduino.Editor.CurrentScreenEditor.DeleteSelectedControls();
                     break;
                 case Keys.Help:
                     break;
