@@ -56,30 +56,32 @@ namespace ScaduinoNET.DataBase
         public string Root { get; set; }
         public string Screens { get; set; }
         public string Tags { get; set; }
+        public string Communication { get; set; }
 
         public ScaduinoProjectDirectories(string root)
+        {
+            Initialize(root);
+        }
+
+        private void Initialize(string root)
         {
             Root = root;
             Screens = string.Format("{0}\\Screens", Root);
             Tags = string.Format("{0}\\Tags", Root);
+            Communication = string.Format("{0}\\Communication", Root);
 
             Directory.CreateDirectory(Screens);
             Directory.CreateDirectory(Tags);
+            Directory.CreateDirectory(string.Format("{0}\\ScaduinoBus", Communication));
 
             File.WriteAllText(string.Format("{0}\\CommonTags.tgs", Tags), "");
+            File.WriteAllText(string.Format("{0}\\ScaduinoBus\\MainCommunication.cnt", Communication), "");
         }
 
         public ScaduinoProjectDirectories(ScaduinoProjectProperties properties)
         {
-            Root = properties.Path;
-            Screens = string.Format("{0}\\Screens", Root);
-            Tags = string.Format("{0}\\Tags", Root);
-
-            Directory.CreateDirectory(Screens);
-            Directory.CreateDirectory(Tags);
-
-            File.WriteAllText(string.Format("{0}\\CommonTags.tgs", Tags), "");
-
+            Initialize(properties.Path);
+            
             var screenProperties = new ScreenPropreties()
             {
                 Name = "NewScreen",
@@ -95,6 +97,7 @@ namespace ScaduinoNET.DataBase
 
             newScreen.Save();
         }
+
     }
 
     class ScaduinoProjectProperties
