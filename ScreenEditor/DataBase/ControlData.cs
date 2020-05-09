@@ -42,7 +42,6 @@ namespace ScreenEditor.DataBase
             Integer,
             Float,
             String,
-            ScaduinoData
         }
 
         public string Name { get; set; }
