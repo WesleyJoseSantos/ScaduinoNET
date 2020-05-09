@@ -503,6 +503,16 @@ namespace ScaduinoNET.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap icons8_nas_96 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_nas_96", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap icons8_novo_arquivo_50 {
             get {
                 object obj = ResourceManager.GetObject("icons8_novo_arquivo_50", resourceCulture);
@@ -526,6 +536,16 @@ namespace ScaduinoNET.Properties {
         public static System.Drawing.Bitmap icons8_painel_de_visualização_50 {
             get {
                 object obj = ResourceManager.GetObject("icons8_painel_de_visualização_50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap icons8_pasta_de_internet_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_pasta_de_internet_50", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
