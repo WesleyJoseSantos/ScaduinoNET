@@ -42,6 +42,7 @@ namespace ScaduinoNET.ScaduinoWindows.Editors
 
         override public void LoadFile()
         {
+            base.LoadFile();
             fctb.OpenFile(FilePath);
             CheckCodeLanguage();
         }
