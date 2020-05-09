@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using CommonControls;
 using ScaduinoNET.ScaduinoWindows.Editors;
@@ -22,7 +15,8 @@ namespace ScaduinoNET.ScaduinoWindows.Main
                 new ProjectPropertiesEditor(),
                 new ProjectScreenEditor(),
                 new ProjectCodeEditor(),
-                new ProjectTagsEditor()
+                new ProjectTagsEditor(),
+                new ProjectCommunicationEditor()
             };
         }
 

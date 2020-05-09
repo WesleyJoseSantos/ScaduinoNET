@@ -32,14 +32,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProjectExplorer));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.ToolStripButtonRefresh = new System.Windows.Forms.ToolStripButton();
-            this.ToolSriptButtonNew = new System.Windows.Forms.ToolStripButton();
-            this.ToolStripButtonImport = new System.Windows.Forms.ToolStripButton();
-            this.ToolStripButtonOpen = new System.Windows.Forms.ToolStripButton();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.Explorer = new CommonControls.FilesExplorer();
             this.Icons = new System.Windows.Forms.ImageList(this.components);
             this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
+            this.ToolStripButtonRefresh = new System.Windows.Forms.ToolStripButton();
+            this.ToolSriptButtonNew = new System.Windows.Forms.ToolStripButton();
+            this.ToolStripButtonImport = new System.Windows.Forms.ToolStripButton();
+            this.ToolStripButtonOpen = new System.Windows.Forms.ToolStripButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
@@ -74,43 +74,6 @@
             this.toolStrip1.Size = new System.Drawing.Size(255, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // ToolStripButtonRefresh
-            // 
-            this.ToolStripButtonRefresh.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ToolStripButtonRefresh.Image = global::ScaduinoNET.Properties.Resources.icons8_atualizações_disponíveis_50;
-            this.ToolStripButtonRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ToolStripButtonRefresh.Name = "ToolStripButtonRefresh";
-            this.ToolStripButtonRefresh.Size = new System.Drawing.Size(23, 22);
-            this.ToolStripButtonRefresh.Text = "Refresh";
-            this.ToolStripButtonRefresh.Click += new System.EventHandler(this.ToolStripButtonRefresh_Click);
-            // 
-            // ToolSriptButtonNew
-            // 
-            this.ToolSriptButtonNew.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ToolSriptButtonNew.Image = ((System.Drawing.Image)(resources.GetObject("ToolSriptButtonNew.Image")));
-            this.ToolSriptButtonNew.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ToolSriptButtonNew.Name = "ToolSriptButtonNew";
-            this.ToolSriptButtonNew.Size = new System.Drawing.Size(23, 22);
-            this.ToolSriptButtonNew.Text = "Add Item";
-            // 
-            // ToolStripButtonImport
-            // 
-            this.ToolStripButtonImport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ToolStripButtonImport.Image = global::ScaduinoNET.Properties.Resources.icons8_baixar_50;
-            this.ToolStripButtonImport.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ToolStripButtonImport.Name = "ToolStripButtonImport";
-            this.ToolStripButtonImport.Size = new System.Drawing.Size(23, 22);
-            this.ToolStripButtonImport.Text = "Import Item";
-            // 
-            // ToolStripButtonOpen
-            // 
-            this.ToolStripButtonOpen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ToolStripButtonOpen.Image = ((System.Drawing.Image)(resources.GetObject("ToolStripButtonOpen.Image")));
-            this.ToolStripButtonOpen.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ToolStripButtonOpen.Name = "ToolStripButtonOpen";
-            this.ToolStripButtonOpen.Size = new System.Drawing.Size(23, 22);
-            this.ToolStripButtonOpen.Text = "Open Explorer";
             // 
             // metroLabel1
             // 
@@ -151,21 +114,60 @@
             this.Icons.Images.SetKeyName(0, "");
             this.Icons.Images.SetKeyName(1, "Screens");
             this.Icons.Images.SetKeyName(2, "Tags");
-            this.Icons.Images.SetKeyName(3, ".scproj");
-            this.Icons.Images.SetKeyName(4, ".scr");
-            this.Icons.Images.SetKeyName(5, ".script");
-            this.Icons.Images.SetKeyName(6, ".xml");
-            this.Icons.Images.SetKeyName(7, ".cs");
-            this.Icons.Images.SetKeyName(8, ".js");
-            this.Icons.Images.SetKeyName(9, ".json");
-            this.Icons.Images.SetKeyName(10, ".sql");
-            this.Icons.Images.SetKeyName(11, ".html");
-            this.Icons.Images.SetKeyName(12, ".vb");
-            this.Icons.Images.SetKeyName(13, ".tgs");
+            this.Icons.Images.SetKeyName(3, "Communication");
+            this.Icons.Images.SetKeyName(4, ".scproj");
+            this.Icons.Images.SetKeyName(5, ".scr");
+            this.Icons.Images.SetKeyName(6, ".script");
+            this.Icons.Images.SetKeyName(7, ".xml");
+            this.Icons.Images.SetKeyName(8, ".cs");
+            this.Icons.Images.SetKeyName(9, ".js");
+            this.Icons.Images.SetKeyName(10, ".json");
+            this.Icons.Images.SetKeyName(11, ".sql");
+            this.Icons.Images.SetKeyName(12, ".html");
+            this.Icons.Images.SetKeyName(13, ".vb");
+            this.Icons.Images.SetKeyName(14, ".tgs");
+            this.Icons.Images.SetKeyName(15, ".cnt");
             // 
             // metroStyleManager1
             // 
             this.metroStyleManager1.Owner = this;
+            // 
+            // ToolStripButtonRefresh
+            // 
+            this.ToolStripButtonRefresh.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ToolStripButtonRefresh.Image = global::ScaduinoNET.Properties.Resources.icons8_atualizações_disponíveis_50;
+            this.ToolStripButtonRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolStripButtonRefresh.Name = "ToolStripButtonRefresh";
+            this.ToolStripButtonRefresh.Size = new System.Drawing.Size(23, 22);
+            this.ToolStripButtonRefresh.Text = "Refresh";
+            this.ToolStripButtonRefresh.Click += new System.EventHandler(this.ToolStripButtonRefresh_Click);
+            // 
+            // ToolSriptButtonNew
+            // 
+            this.ToolSriptButtonNew.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ToolSriptButtonNew.Image = ((System.Drawing.Image)(resources.GetObject("ToolSriptButtonNew.Image")));
+            this.ToolSriptButtonNew.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolSriptButtonNew.Name = "ToolSriptButtonNew";
+            this.ToolSriptButtonNew.Size = new System.Drawing.Size(23, 22);
+            this.ToolSriptButtonNew.Text = "Add Item";
+            // 
+            // ToolStripButtonImport
+            // 
+            this.ToolStripButtonImport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ToolStripButtonImport.Image = global::ScaduinoNET.Properties.Resources.icons8_baixar_50;
+            this.ToolStripButtonImport.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolStripButtonImport.Name = "ToolStripButtonImport";
+            this.ToolStripButtonImport.Size = new System.Drawing.Size(23, 22);
+            this.ToolStripButtonImport.Text = "Import Item";
+            // 
+            // ToolStripButtonOpen
+            // 
+            this.ToolStripButtonOpen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ToolStripButtonOpen.Image = ((System.Drawing.Image)(resources.GetObject("ToolStripButtonOpen.Image")));
+            this.ToolStripButtonOpen.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolStripButtonOpen.Name = "ToolStripButtonOpen";
+            this.ToolStripButtonOpen.Size = new System.Drawing.Size(23, 22);
+            this.ToolStripButtonOpen.Text = "Open Explorer";
             // 
             // ProjectExplorer
             // 
