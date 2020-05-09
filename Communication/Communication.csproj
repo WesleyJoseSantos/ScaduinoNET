@@ -55,6 +55,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Communication.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Communication.Designer.cs">
+      <DependentUpon>Communication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\CommunicationSheet.cs" />
+    <Compile Include="ScaduinoBus.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ScaduinoBus.Designer.cs">
+      <DependentUpon>ScaduinoBus.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControl1.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -66,6 +79,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ScreenEditor\ScreenEditor.csproj">
+      <Project>{49318afe-c4dc-42f9-8322-9e3269c25a74}</Project>
+      <Name>ScreenEditor</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
